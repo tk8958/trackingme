@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Bus Tracking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>🚌 VU Bus Tracking</h2>
+
+<div class="controls">
+  <input type="text" id="busNumberInput" placeholder="Enter Bus Number">
+  <button id="searchBtn">Search</button>
+</div>
+
+<canvas id="mapCanvas"></canvas>
+
+<div class="info">
+  <p><b>Driver:</b> <span id="driverName">---</span></p>
+  <p><b>Last Updated:</b> <span id="time">---</span></p>
+</div>
+
+<div class="navbar">
+  <div class="nav-left">
+    <img src="images/vu.jpeg" alt="Vivek University" class="uni-logo">
+  </div>
+
+  <div class="nav-right">
+    <p id="developer">Developed by</p>
+    <a href="https://tkprofile.netlify.app/" class="profile-link">
+      <img src="images/myimg.jpeg" alt="Tushar Kumar" class="profile-img">
+      <span>Tushar Kumar</span>
+    </a>
+  </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script src="./admin/firebase-config.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>

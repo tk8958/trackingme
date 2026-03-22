@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Login</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,#4facfe,#00f2fe);
+    }
+
+    .container{
+      width:100%;
+      min-height:100vh;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      padding:40px 20px;
+    }
+
+    h2{
+      color:white;
+      margin-bottom:25px;
+      font-size:26px;
+      text-align:center;
+    }
+
+    input{
+      width:100%;
+      padding:16px;
+      margin:12px 0;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+    }
+
+    button{
+      width:100%;
+      padding:16px;
+      margin-top:12px;
+      border:none;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:600;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+      color:white;
+      cursor:pointer;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    /* 💻 DESKTOP CARD */
+    @media(min-width:700px){
+      .container{
+        align-items:center;
+      }
+
+      .form-wrapper{
+        width:100%;
+        max-width:420px;
+        background: rgba(255,255,255,0.18);
+        backdrop-filter: blur(15px);
+        padding:35px 25px;
+        border-radius:18px;
+        box-shadow:0 15px 40px rgba(0,0,0,0.25);
+      }
+    }
+
+  </style>
+
+  <!-- Firebase core -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <!-- Config -->
+  <script src="../admin/firebase-config.js"></script>
+
+  <!-- Logic -->
+  <script src="studentLogin.js" defer></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="form-wrapper">
+
+    <h2>Student Login</h2>
+
+    <input id="easyId" placeholder="College Easy ID">
+    <input id="email" placeholder="Email">
+
+    <button onclick="loginStudent()">Login</button>
+
+  </div>
+
+</div>
+
+</body>
+</html>

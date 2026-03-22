@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUBUS - Smart Transport System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body{
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            color:#333;
+        }
+
+        /* HEADER */
+        header{
+            width:100%;
+            padding:15px 20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:1000;
+        }
+
+        header h2{
+            color:white;
+            font-size:20px;
+        }
+
+        nav a{
+            position: relative;
+            margin-left:15px;
+            text-decoration:none;
+            color:white;
+            font-weight:600;
+            font-size:14px;
+            transition:0.3s;
+        }
+
+        nav a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:-5px;
+            width:0%;
+            height:2px;
+            background:white;
+            transition:0.3s;
+        }
+
+        nav a:hover::after{
+            width:100%;
+        }
+
+        nav a:hover{
+            transform:translateY(-2px);
+        }
+
+        /* HERO */
+        .hero{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:100px 20px 40px;
+        }
+
+        .hero h1{
+            font-size:38px;
+            margin-bottom:15px;
+            font-weight:700;
+
+            background: linear-gradient(90deg,#ffffff,#e0f7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            text-shadow:0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero p{
+            margin-bottom:25px;
+            opacity:0.95;
+            max-width:550px;
+            line-height:1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero .tagline{
+            background: rgba(255,255,255,0.15);
+            padding:12px 25px;
+            border-radius:30px;
+            color:white;
+            font-size:14px;
+
+            backdrop-filter: blur(10px);
+            box-shadow:0 5px 20px rgba(0,0,0,0.2);
+            transition:0.3s;
+        }
+
+        .hero .tagline:hover{
+            transform:scale(1.05);
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* FEATURES */
+        .features{
+            padding:50px 15px;
+            background:white;
+            text-align:center;
+        }
+
+        .features h2{
+            margin-bottom:30px;
+            font-size:24px;
+        }
+
+        .feature-box{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            background:#f9f9f9;
+            padding:20px;
+            border-radius:10px;
+            width:100%;
+            max-width:280px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3{
+            margin-bottom:10px;
+        }
+
+        /* FOOTER */
+        footer{
+            text-align:center;
+            padding:15px;
+            background:#222;
+            color:white;
+            font-size:14px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media(max-width:600px){
+            .hero h1{
+                font-size:26px;
+            }
+
+            nav a{
+                margin-left:10px;
+                font-size:12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>VUBUS</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="students/studentLogin.html">Student Portal</a>
+        <a href="college/collegeRegister.html">College Portal</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Smart College Transport System</h1>
+    <p>Manage buses, track students and simplify transport operations with a modern digital platform.</p>
+
+    <div class="tagline">🚀 Fast • Secure • Easy to Use</div>
+</section>
+
+<section class="features">
+    <h2>Why Choose VUBUS?</h2>
+
+    <div class="feature-box">
+        <div class="card">
+            <h3>📍 Live Tracking</h3>
+            <p>Track buses in real-time with accurate GPS updates.</p>
+        </div>
+
+        <div class="card">
+            <h3>🚌 Smart Management</h3>
+            <p>Handle multiple buses and routes from one dashboard.</p>
+        </div>
+
+        <div class="card">
+            <h3>🔐 Secure Payments</h3>
+            <p>Integrated and secure payments with Razorpay.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 VUBUS System | All Rights Reserved
+</footer>
+
+</body>
+</html>

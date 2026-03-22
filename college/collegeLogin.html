@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+        }
+
+        .container{
+            width:100%;
+            min-height:100vh;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+
+            padding:40px 20px;
+        }
+
+        h2{
+            color:white;
+            margin-bottom:25px;
+            font-size:26px;
+            text-align:center;
+        }
+
+        input{
+            width:100%;
+            padding:16px;
+            margin:12px 0;
+            border:none;
+            border-radius:12px;
+            font-size:16px;
+        }
+
+        button{
+            width:100%;
+            padding:16px;
+            margin-top:12px;
+            border:none;
+            border-radius:12px;
+            font-size:16px;
+            font-weight:600;
+            background:linear-gradient(135deg,#667eea,#764ba2);
+            color:white;
+        }
+
+        /* 💻 DESKTOP ONLY CARD */
+        @media(min-width:700px){
+            .container{
+                align-items:center;
+            }
+
+            .form-wrapper{
+                width:100%;
+                max-width:420px;
+                background: rgba(255,255,255,0.18);
+                backdrop-filter: blur(15px);
+                padding:35px 25px;
+                border-radius:18px;
+                box-shadow:0 15px 40px rgba(0,0,0,0.25);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="form-wrapper">
+
+        <h2>College Login</h2>
+
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="loginCollege()">Login</button>
+
+    </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script src="../admin/firebase-config.js"></script>
+<script src="college.js"></script>
+
+</body>
+</html>

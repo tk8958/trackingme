@@ -1,0 +1,47 @@
+<h2>Subscription Expired</h2>
+
+<button onclick="renew()">Renew Subscription</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+
+function renew(){
+
+const options = {
+
+key:"RAZORPAY_KEY_ID",
+
+amount:1000*100,
+
+currency:"INR",
+
+name:"VUBUS Renewal",
+
+handler:function(){
+
+const collegeId=localStorage.getItem("collegeId");
+
+const start=Date.now();
+const expiry=start+(365*24*60*60*1000);
+
+firebase.database().ref("colleges/"+collegeId+"/subscription").update({
+
+startDate:start,
+expiryDate:expiry,
+status:"ACTIVE"
+
+});
+
+alert("Subscription renewed for 1 year");
+
+location.href="../admin/admin.html";
+
+}
+
+};
+
+new Razorpay(options).open();
+
+}
+
+</script>
