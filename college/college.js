@@ -34,29 +34,28 @@ function registerCollege(){
         name: "VUBUS Subscription",
         description: buses + " Bus Subscription (1 Year)",
 
-        // 🔥 UPDATED HANDLER (SECURE)
+        // ✅ FIXED HANDLER
         handler: async function (response) {
 
             try{
 
                 const paymentId = response.razorpay_payment_id;
 
-                // 🔴 Basic validation
-                if(!paymentId || !paymentId.startsWith("pay_")){
-                    alert("Invalid Payment");
+                if(!paymentId){
+                    alert("Payment Failed");
                     return;
                 }
 
                 const tempRef = firebase.database().ref("tempPayments/" + paymentId);
                 const snap = await tempRef.once("value");
 
-                // 🔴 Duplicate check
+                // 🔴 DUPLICATE CHECK (IMPORTANT)
                 if(snap.exists()){
-                    alert("Duplicate / Fake Payment Detected");
+                    alert("Payment already used ❌");
                     return;
                 }
 
-                // ✅ Save payment first
+                // ✅ SAVE PAYMENT
                 await tempRef.set({
                     paymentId: paymentId,
                     amount: totalAmount,
@@ -64,7 +63,7 @@ function registerCollege(){
                     createdAt: Date.now()
                 });
 
-                // ✅ Continue registration
+                // ✅ DIRECT REGISTRATION (NO EXTRA VERIFY)
                 await completeRegistration(
                     buses,
                     totalAmount,
@@ -73,13 +72,7 @@ function registerCollege(){
 
             }catch(e){
                 console.error(e);
-                alert("Payment verification failed");
-            }
-        },
-
-        modal: {
-            ondismiss: function () {
-                console.log("Payment popup closed");
+                alert("Payment failed ❌");
             }
         }
     };
@@ -93,30 +86,6 @@ function registerCollege(){
 async function completeRegistration(buses,totalAmount,paymentId){
 
     try{
-
-        // 🔥 PAYMENT VERIFY (NEW)
-        const paymentSnap = await firebase.database()
-            .ref("tempPayments/" + paymentId)
-            .once("value");
-
-        if(!paymentSnap.exists()){
-            alert("Invalid Payment");
-            return;
-        }
-
-        const paymentData = paymentSnap.val();
-
-        // 🔴 Amount check
-        if(paymentData.amount !== totalAmount){
-            alert("Payment mismatch");
-            return;
-        }
-
-        // 🔴 Expiry check (10 min)
-        if(Date.now() - paymentData.createdAt > 10 * 60 * 1000){
-            alert("Payment expired");
-            return;
-        }
 
         const name=document.getElementById("collegeName").value.trim();
         const email=document.getElementById("email").value.trim();
@@ -148,7 +117,7 @@ async function completeRegistration(buses,totalAmount,paymentId){
             }
         });
 
-        // 🔥 mark payment used
+        // ✅ MARK PAYMENT USED
         await firebase.database()
             .ref("tempPayments/" + paymentId)
             .update({
@@ -165,7 +134,7 @@ async function completeRegistration(buses,totalAmount,paymentId){
 
     }catch(e){
         console.error(e);
-        alert("Registration failed");
+        alert("Registration failed ❌");
     }
 }
 
@@ -189,7 +158,6 @@ function loginCollege(){
         await user.reload();
 
         if(!user.emailVerified){
-
             alert("❌ Email verify karo pehle.");
             firebase.auth().signOut();
             return;
