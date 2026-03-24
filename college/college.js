@@ -71,9 +71,9 @@ function registerCollege(){
                 );
 
             }catch(e){
-                console.error(e);
-                alert("Payment failed ❌");
-            }
+    console.error("ERROR 👉 ", e);
+    alert(e.message); // 🔥 asli error yahi dikhayega
+}
         }
     };
 
