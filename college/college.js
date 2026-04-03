@@ -28,7 +28,7 @@ function registerCollege(){
     const totalAmount = buses * pricePerBus;
 
     const options = {
-        key: "rzp_test_SSatdpeZIdnRYw",
+        key: "rzp_test_SWxdsDgdgkuzUP",
         amount: totalAmount * 100,
         currency: "INR",
         name: "VUBUS Subscription",
